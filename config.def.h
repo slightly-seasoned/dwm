@@ -5,6 +5,8 @@ static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
+static const unsigned int colorfultag = 1;      /* 0 means use SchemeSel for
+                                                   selected tag */
 static const int vertpad            = 10;       /* vertical padding of bar */
 static const int sidepad            = 10;       /* horizontal padding of bar */
 static const char *fonts[]          = { "monospace:size=10" };
@@ -18,10 +20,25 @@ static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
 	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
+
+    [SchemeTag]  = { col_gray3, col_gray1, NULL }, /* Inactive tag. */
+    [SchemeTag1] = { col_gray4, col_cyan,  NULL },
+    [SchemeTag2] = { col_gray4, col_cyan,  NULL },
+    [SchemeTag3] = { col_gray4, col_cyan,  NULL },
+    [SchemeTag4] = { col_gray4, col_cyan,  NULL },
+    [SchemeTag5] = { col_gray4, col_cyan,  NULL },
+    [SchemeTag6] = { col_gray4, col_cyan,  NULL },
+    [SchemeTag7] = { col_gray4, col_cyan,  NULL },
+    [SchemeTag8] = { col_gray4, col_cyan,  NULL },
+    [SchemeTag9] = { col_gray4, col_cyan,  NULL },
+    /* And so forth... */
 };
 
 /* tagging */
-static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+static const char *tags[]      = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+static const int  tagschemes[] = { SchemeTag1, SchemeTag2, SchemeTag3,
+                                   SchemeTag4, SchemeTag5, SchemeTag6,
+                                   SchemeTag7, SchemeTag8, SchemeTag9 };
 
 static const Rule rules[] = {
 	/* xprop(1):
