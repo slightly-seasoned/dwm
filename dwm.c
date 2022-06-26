@@ -651,7 +651,7 @@ createmon(void)
 	m->nmaster = nmaster;
 	m->showbar = showbar;
 	m->topbar = topbar;
-   m->colorfultag = colorfultag ? colorfultag : 0;
+    m->colorfultag = colorfultag ? colorfultag : 0;
 	m->lt[0] = &layouts[0];
 	m->lt[1] = &layouts[1 % LENGTH(layouts)];
 	strncpy(m->ltsymbol, layouts[0].symbol, sizeof m->ltsymbol);
@@ -1032,9 +1032,13 @@ drawbar(Monitor *m)
         drw_setscheme(
             drw,
             scheme[
+                /*
                 m->tagset[m->seltags] & 1 << i
                 ? (m->colorfultag ? tagschemes[i] : SchemeSel)
                 : SchemeTag
+                */
+                m->colorfultag ? tagschemes[i] :
+                SchemeSel
             ]
         );
 		drw_text(drw, x, 0, w, bh, lrpad / 2, tags[i], urg & 1 << i);
