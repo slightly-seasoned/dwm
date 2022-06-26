@@ -60,7 +60,3 @@ dwindle(Monitor *mon) {
 	fibonacci(mon, 1);
 }
 
-void
-spiral(Monitor *mon) {
-	fibonacci(mon, 0);
-}
