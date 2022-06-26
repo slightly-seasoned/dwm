@@ -29,31 +29,27 @@ static const char col_purple[] = "#bb70d2";
 static const char col_cyan[]   = "#51a8b3";
 static const char col_grey[]   = "#818387";
 
-static const char *colors[][3] = {
+static const char *colors[][3]      = {
     /*                   fg          bg      border   */
-    [SchemeNorm]     = { col_fg,     col_bg,  col_grey },
-    [SchemeSel]      = { col_fg,     col_bg2, col_cyan  },
+    [SchemeNorm]     = { col_fg,     col_bg, col_grey },
+    [SchemeSel]      = { col_fg,     col_purple, col_cyan  },
 
-    [SchemeTag]      = { col_grey,   col_bg,  NULL },
-    [SchemeTag1]     = { col_red,    col_bg,  NULL },
-    [SchemeTag2]     = { col_green,  col_bg,  NULL },
-    [SchemeTag3]     = { col_blue,   col_bg,  NULL },
-    [SchemeTag4]     = { col_yellow, col_bg,  NULL },
+    [SchemeTag]      = { col_grey,   col_bg, NULL },
+    [SchemeTag1]     = { col_red,    col_bg, NULL },
+    [SchemeTag2]     = { col_green,  col_bg, NULL },
+    [SchemeTag3]     = { col_blue,   col_bg, NULL },
+    [SchemeTag4]     = { col_yellow, col_bg, NULL },
 };
 
 /* tagging */
-static const char *tags[]      = { "I", "II", "III", "IV" };
-static const int  tagschemes[] = { SchemeTag1, SchemeTag2, SchemeTag3,
-                                   SchemeTag4 };
+static const char *tags[]     = { "I", "II", "III", "IV" };
+static const int tagschemes[] = { SchemeTag1, SchemeTag2, SchemeTag3,
+                                  SchemeTag4 };
 
-static const unsigned int ulinepad      = 5;    /* horizontal padding between
-                                                   the underline and tag */
-static const unsigned int ulinestroke   = 2;    /* thickness / height of the
-                                                   underline */
-static const unsigned int ulinevoffset  = 0;    /* how far above the bottom of
-                                                   the bar the line should appear */
-static const int          ulineall      = 0;    /* 1 to show underline on all
-                                                   tags, 0 for just the active ones */
+static const unsigned int ulinepad  = 5;    /* horizontal padding between the underline and tag */
+static const unsigned int ulinestroke   = 2;    /* thickness / height of the underline */
+static const unsigned int ulinevoffset  = 0;    /* how far above the bottom of the bar the line should appear */
+static const int ulineall       = 0;    /* 1 to show underline on all tags, 0 for just the active ones */
 
 static const Rule rules[] = {
     /* xprop(1):
@@ -77,7 +73,6 @@ static const Layout layouts[] = {
  	{ "[\\]",      dwindle },    /* first entry is default */
     { "><>",      NULL },        /* no layout function means floating behavior */
     { "[]=",      tile },
-    { "[M]",      monocle },
 };
 
 /* key definitions */
