@@ -16,7 +16,7 @@ static const int          topbar      = 1;     /* 0 means bottom bar */
 static const unsigned int colorfultag = 1;     /* 0 means use SchemeSel for
                                                      selected tag */
 
-static const char *fonts[] = { "Victor Mono Medium:size=12:antialias=true:autohint=true" };
+static const char *fonts[] = { "Victor Mono SemiBold:size=12:antialias=true:autohint=true" };
 
 static const char col_bg[]     = "#232326";
 static const char col_bg2[]    = "#2c2d31";
@@ -92,10 +92,17 @@ static const Layout layouts[] = {
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
 /* commands */
-#define TERMINAL_CMD   "st"
-#define LAUNCHER_CMD   "dmenu_run"
-#define BROWSER_CMD    "qutebrowser"
-#define LOCKSCREEN_CMD "slock"
+#define TERMINAL_CMD       "st"
+#define LAUNCHER_CMD       "dmenu_run"
+#define BROWSER_CMD        "qutebrowser"
+#define LOCKSCREEN_CMD     "slock"
+#define SCREENSHOT_CMD     "scrot -z '%Y-%m-%d_$wx$h.png' -e 'mv $f $HOME/pics'"
+#define LOCKSCREEN_ON_CMD  "igns on"
+#define LOCKSCREEN_OFF_CMD "igns off"
+#define INCREASE_BRIGHTNESS_CMD "xbacklight -inc 10"
+#define DECREASE_BRIGHTNESS_CMD "xbacklight -dec 10"
+
+#include <X11/XF86keysym.h>
 
 static Key keys[] = {
     /* modifier           key        function        argument */
@@ -103,6 +110,11 @@ static Key keys[] = {
     { MODKEY,             XK_z,      spawn,          SHCMD( TERMINAL_CMD ) },
     { MODKEY|ControlMask, XK_b,      spawn,          SHCMD( BROWSER_CMD ) },
     { MODKEY,             XK_l,      spawn,          SHCMD( LOCKSCREEN_CMD ) },
+    { MODKEY,             XK_Print,  spawn,          SHCMD( SCREENSHOT_CMD ) },
+    { MODKEY,             XK_F1,     spawn,          SHCMD( LOCKSCREEN_ON_CMD ) },
+    { MODKEY,             XK_F2,     spawn,          SHCMD( LOCKSCREEN_OFF_CMD ) },
+    { MODKEY,             XK_F5,     spawn,          SHCMD( DECREASE_BRIGHTNESS_CMD ) },
+    { MODKEY,             XK_F6,     spawn,          SHCMD( INCREASE_BRIGHTNESS_CMD ) },
 
     { MODKEY,             XK_b,      togglebar,      {0} },
     { MODKEY,             XK_j,      focusstack,     {.i = +1 } },
@@ -149,7 +161,7 @@ static Button buttons[] = {
     { ClkClientWin,         MODKEY,           Button2,        togglefloating, {0} },
     { ClkClientWin,         MODKEY,           Button3,        resizemouse,    {0} },
     { ClkClientWin,         MODKEY|ShiftMask, Button1,        dragmfact,      {0} },
-    { ClkClientWin,         MODKEY|ShiftMask, Button3,        dragcfact,      {0} },
+    { ClkClientWin,         MODKEY|ShiftMask, Button2,        dragcfact,      {0} },
     { ClkTagBar,            0,                Button1,        view,           {0} },
     { ClkTagBar,            0,                Button3,        toggleview,     {0} },
     { ClkTagBar,            MODKEY,           Button1,        tag,            {0} },
