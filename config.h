@@ -7,7 +7,7 @@ static const int          vertpad     = 12;    /* vertical padding of bar */
 static const int          sidepad     = 12;    /* horizontal padding of bar */
 static const int          horizpadbar = 10;     /* horizontal padding for
                                                   statusbar */
-static const int          vertpadbar  = 10;     /* vertical padding for
+static const int          vertpadbar  = 16;     /* vertical padding for
                                                   statusbar */
 static const unsigned int gappx       = 12;    /* gaps between windows */
 
@@ -87,13 +87,13 @@ static const Layout layouts[] = {
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
 /* commands */
-#define TERMINAL_CMD       "st"
-#define LAUNCHER_CMD       "dmenu_run"
-#define BROWSER_CMD        "qutebrowser"
-#define LOCKSCREEN_CMD     "slock"
-#define SCREENSHOT_CMD     "scrot -z '%Y-%m-%d_$wx$h.png' -e 'mv $f $HOME/pics'"
-#define LOCKSCREEN_ON_CMD  "igns on"
-#define LOCKSCREEN_OFF_CMD "igns off"
+#define TERMINAL_CMD            "st"
+#define LAUNCHER_CMD            "dmenu_run"
+#define BROWSER_CMD             "qutebrowser"
+#define LOCKSCREEN_CMD          "slock"
+#define SCREENSHOT_CMD          "scrot -z '%Y-%m-%d_$wx$h.png' -e 'mv $f $HOME/pics'"
+#define LOCKSCREEN_ON_CMD       "igns on"
+#define LOCKSCREEN_OFF_CMD      "igns off"
 #define INCREASE_BRIGHTNESS_CMD "xbacklight -inc 10"
 #define DECREASE_BRIGHTNESS_CMD "xbacklight -dec 10"
 
