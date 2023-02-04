@@ -89,11 +89,11 @@ static const Layout layouts[] = {
 /* commands */
 #define TERMINAL_CMD            "st"
 #define LAUNCHER_CMD            "dmenu_run"
-#define BROWSER_CMD             "qutebrowser"
+#define BROWSER_CMD             "firefox"
 #define LOCKSCREEN_CMD          "slock"
-#define SCREENSHOT_CMD          "scrot -z '%Y-%m-%d_$wx$h.png' -e 'mv $f $HOME/pics'"
-#define LOCKSCREEN_ON_CMD       "igns on"
-#define LOCKSCREEN_OFF_CMD      "igns off"
+#define SCREENSHOT_CMD          "scrot -z 'SCREENSHOT-%Y-%m-%d_$wx$h.png' -e 'mv $f $HOME/media/pics'"
+#define LOCKSCREEN_ON_CMD       "xset s on"
+#define LOCKSCREEN_OFF_CMD      "xset s off"
 #define INCREASE_BRIGHTNESS_CMD "xbacklight -inc 10"
 #define DECREASE_BRIGHTNESS_CMD "xbacklight -dec 10"
 
